@@ -1,5 +1,3 @@
-!pip install langchain langchain_groq  pyTelegramBotAPI
-
 from langchain.schema.output_parser import StrOutputParser
 from langchain.prompts import PromptTemplate
 from langchain_groq import ChatGroq
