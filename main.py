@@ -4,10 +4,19 @@ from langchain_groq import ChatGroq
 import telebot
 from telebot import types
 import random
+import os
 
-
-bot_token = '7247314941:AAHD0iF0PXZGy8e62NTrbNQ9lTl4bIZL1WY'
+bot_token = os.environ['bot_token']
 bot = telebot.TeleBot(bot_token)
+
+grog_api_key = os.environ['grog_api_key']
+
+llm = ChatGroq(
+    temperature=0,
+    model="llama3-70b-8192",
+    api_key= grog_api_key
+)
+
 
 file_path = 'words.txt'
 
@@ -16,13 +25,6 @@ with open(file_path, 'r') as f:
 
 words_list = words[0].split(',')
 
-grog_api_key = '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'
-
-llm = ChatGroq(
-    temperature=0,
-    model="llama3-70b-8192",
-    api_key= grog_api_key
-)
 
 template = """You are my English teacher. I need to remember the meaning of words, and the best way to remember is to see them in the text in
 context. I give you my word, you show me the translation into Russian and offer the text in which it is used.
