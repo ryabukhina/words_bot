@@ -5,7 +5,10 @@ import telebot
 from telebot import types
 import random
 import os
+from flask import Flask, request 
 
+
+server = Flask(__name__)
 bot_token = os.environ['bot_token']
 bot = telebot.TeleBot(bot_token)
 
