@@ -85,4 +85,5 @@ def send_about(message):
     about_message = "This bot is designed to learn English words."
     bot.reply_to(message, about_message)
 
+bot.remove_webhook()
 bot.polling()
